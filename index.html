@@ -300,8 +300,8 @@
         <li><strong>DLL:</strong> 있음 (25K 제외)</li>
         <li><strong>Eval Consistency:</strong> 없음</li>
         <li><strong>Funded Consistency:</strong> 40%</li>
-        <li><strong>Payout 주기:</strong> 3일마다</li>
-        <li><strong>Live 전환:</strong> 누적 Payout 달성 시</li>
+        <li><strong>Payout 주기:</strong> 요건 충족 후 아무 때나 요청</li>
+        <li><strong>Live 전환:</strong> Payout 5 이후 리스크팀 검토</li>
         <li>일회성 구매, 월구독 없음</li>
       </ul>
     </div>
@@ -314,7 +314,7 @@
         <li><strong>Eval Consistency:</strong> 50%</li>
         <li><strong>Funded Consistency:</strong> 없음 (!)</li>
         <li><strong>Payout:</strong> 수익의 50%까지, 5일 수익일 필요</li>
-        <li><strong>Live 전환:</strong> 5회 Payout 성공 후</li>
+        <li><strong>Live 전환:</strong> 5회 Payout 후 리스크팀 검토</li>
         <li>가장 저렴한 가격대</li>
       </ul>
     </div>
@@ -326,7 +326,7 @@
         <li><strong>특징:</strong> KYC 완료 즉시 거래 가능</li>
         <li><strong>Consistency:</strong> 20% (가장 엄격)</li>
         <li><strong>최소 거래일:</strong> 5일</li>
-        <li><strong>Live 전환:</strong> 6회 Payout 성공 후</li>
+        <li><strong>Live 전환:</strong> Payout 5 이후 리스크팀 검토</li>
         <li>가장 비싼 가격, 빠른 시작</li>
       </ul>
     </div>
@@ -346,7 +346,7 @@
 
   <div class="callout callout-blue">
     <span class="label">참고 — LucidBlack (Legacy)</span><br>
-    2026년 3월 단종. 신규 가입 불가, 기존 보유자는 계속 이용 가능. 40% Consistency, DLL 없음, 3일 Payout Cycle, 4회 Payout으로 LucidLive 전환.
+    2026년 3월 단종. 신규 가입 불가, 기존 보유자는 계속 이용 가능. 40% Consistency, DLL 없음. Payout 요건 충족 후 아무 때나 요청 가능. Profit Goal: $25K=$1,500 / $50K=$3,000 / $100K=$4,500. Payout Cap: $25K=$750, $50K=$1,500, $100K=$2,000. Bonus Payout(2~4차, 선택): $25K=$750, $50K=$1,500, $100K=$2,000 추가 가능.
   </div>
 </div>
 
@@ -489,17 +489,31 @@
   <div class="explain">
     <div class="explain-title">쉽게 풀어서 설명: LucidScale DLL이란?</div>
     <p>
-      잔고가 Initial Trail Balance(ITB, 초기 추적 시작점)를 넘어서면, 기존 고정 DLL 대신
-      <code>Peak EOD 잔고의 60%</code>가 새로운 DLL이 됩니다.
+      잔고가 Initial Trail Balance(ITB)를 넘어서면, 기존 고정 DLL 대신
+      <code>최고 EOD 수익(profit) × 60%</code>가 새로운 DLL이 됩니다.
     </p>
     <p>
-      예: 50K 계정에서 ITB를 넘겨 Peak EOD 잔고가 $54,000이 되었다면, 그날의 DLL은
-      $54,000 × 60% = <strong>$32,400</strong>… 가 아니라, "수익 부분의 60%"라는 뜻으로
-      그날 잃을 수 있는 한도가 확대됩니다.
+      <strong>공식:</strong> Highest end-of-day account profit × 60% = LucidScale DLL
     </p>
     <p>
-      이 전환은 계정 성장에 따라 자동으로 적용되며, 수익이 쌓일수록 하루 허용 손실폭이 넓어지는 구조입니다.
+      예: 50K 계정에서 ITB($52,100)를 넘기고 최고 EOD 수익이 $4,000이라면 → $4,000 × 60% = <strong>$2,400</strong>이 새 DLL.
+      기존 고정 DLL $1,200보다 2배 넓어진 것입니다.
     </p>
+    <p>
+      <strong>핵심:</strong> LucidScale DLL은 한번 올라가면 <strong>절대 내려가지 않습니다</strong> — 계정이 drawdown 되더라도 최고점 기준 유지.
+      수익이 쌓일수록 하루 허용 손실폭이 넓어지는 트레이더 친화적 구조입니다.
+    </p>
+  </div>
+
+  <h4>ITB (Initial Trail Balance) 기준표</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>계정</th><th>Fixed DLL</th><th>Initial Trail Balance</th></tr>
+      <tr><td>$25K</td><td>없음</td><td>$26,100</td></tr>
+      <tr><td>$50K</td><td>$1,200</td><td>$52,100</td></tr>
+      <tr><td>$100K</td><td>$1,800</td><td>$103,100</td></tr>
+      <tr><td>$150K</td><td>$2,700</td><td>$154,600</td></tr>
+    </table>
   </div>
 </div>
 
@@ -615,20 +629,28 @@
   <h3><span class="tag tag-pro">Pro</span> LucidPro Funded Payout</h3>
   <div class="table-wrap">
     <table>
-      <tr><th>계정</th><th>Payout Target<br>(최소 수익 목표)</th><th>최소 일수</th><th>Consistency</th><th>Buffer</th></tr>
-      <tr><td>$25K</td><td>$250</td><td>3일</td><td>40%</td><td>MLL + $100</td></tr>
-      <tr><td>$50K</td><td>$500</td><td>3일</td><td>40%</td><td>MLL + $100</td></tr>
-      <tr><td>$100K</td><td>$750</td><td>3일</td><td>40%</td><td>MLL + $100</td></tr>
-      <tr><td>$150K</td><td>$1,000</td><td>3일</td><td>40%</td><td>MLL + $100</td></tr>
+      <tr><th>계정</th><th>Minimum Profit Goal<br>(최소 수익 목표)</th><th>Consistency</th><th>Buffer Balance</th></tr>
+      <tr><td>$25K</td><td>$250</td><td>40%</td><td>$26,100</td></tr>
+      <tr><td>$50K</td><td>$500</td><td>40%</td><td>$52,100</td></tr>
+      <tr><td>$100K</td><td>$750</td><td>40%</td><td>$103,100</td></tr>
+      <tr><td>$150K</td><td>$1,000</td><td>40%</td><td>$154,600</td></tr>
     </table>
   </div>
+  <ul>
+    <li><strong>최소 거래일 요건: 없음</strong> — 요건만 충족하면 아무 때나 Payout 요청 가능</li>
+    <li>2025/11/28 이전 구매/리셋 계정: 첫 $10K까지 100% 수익 배분 (이후 90/10)</li>
+  </ul>
 
   <div class="explain">
     <div class="explain-title">쉽게 풀어서 설명: Payout Buffer란?</div>
     <p>
-      출금 후에도 잔고가 <code>MLL + $100</code> 이상이어야 합니다.
-      예를 들어 50K 계정의 MLL이 $52,000 (고정)이라면, 출금 후 잔고가 최소 $52,100 이상이어야 한다는 뜻입니다.
-      출금으로 MLL 근처까지 잔고가 떨어지는 것을 방지하는 안전장치입니다.
+      출금을 요청하려면 수익이 Buffer Balance를 초과해야 합니다.
+      Buffer = <code>초기 Max Loss Limit + $100</code>입니다.
+    </p>
+    <p>
+      예: 50K 계정 → MLL은 $50,000 + $2,000 = $52,000에서 시작, Buffer는 $52,100.
+      즉, 잔고가 $52,100 이상이어야 출금 가능하고, Buffer 금액 자체에서는 출금할 수 없습니다.
+      출금 후에도 잔고가 Buffer 아래로 떨어지면 요청이 거부될 수 있습니다.
     </p>
   </div>
 
@@ -642,7 +664,6 @@
       <tr><td>$150K</td><td>$3,000</td><td>$3,500</td></tr>
     </table>
   </div>
-  <p>LucidLive 전환 전 최대 총 수령액: 약 $12,000 (50K 기준)</p>
 
   <h3><span class="tag tag-flex">Flex</span> LucidFlex Funded Payout</h3>
   <div class="table-wrap">
@@ -659,11 +680,15 @@
     <div class="explain-title">쉽게 풀어서 설명: LucidFlex Payout 구조</div>
     <p>
       Flex는 Consistency 룰이 없는 대신, 출금을 위해 <strong>최소 5개의 "수익일"</strong>이 필요합니다.
-      각 수익일에 위 표의 최소 금액 이상을 벌어야 "수익일"로 인정됩니다.
+      각 수익일에 위 표의 최소 금액 이상을 벌어야 "수익일"로 인정됩니다. 수익일 요건은 매 Payout 후 리셋됩니다.
     </p>
     <p>
-      출금 가능액은 <strong>수익의 50%</strong>이며, 계정별 Cap이 있습니다.
-      5회 Payout 성공 → LucidLive 전환 가능. Live 전환 전 최대 총 수령: ~$10,000 (50K 기준).
+      추가로 해당 Payout Cycle 중 <strong>양(+)의 순수익</strong>이 있어야 합니다 ($1라도 OK).
+    </p>
+    <p>
+      출금 가능액은 <strong>수익의 50%</strong>이며, 계정별 Cap이 있습니다. Buffer 없음.
+      <strong>최대 5회 Payout</strong> 후 Live 전환 대상이 됩니다.
+      Cap은 Payout 횟수에 따라 올라가지 않고 동일합니다.
     </p>
   </div>
 
@@ -688,7 +713,7 @@
       <tr><td>$150K</td><td>$3,000</td><td>$3,500</td></tr>
     </table>
   </div>
-  <p>20% Consistency 적용. 6회 Payout → LucidLive 전환.</p>
+  <p>20% Consistency 적용. 매 Payout 후 수익 $0 리셋. 요건 충족 시 아무 때나 Payout 요청 가능.</p>
 
   <h3><span class="tag tag-maxx">Maxx</span> LucidMaxx (Live 전환 후)</h3>
   <ul>
@@ -712,28 +737,85 @@
     </p>
   </div>
 
-  <h3>핵심 변경사항</h3>
+  <h3>Live 전환 대상 (리뷰풀 진입 조건)</h3>
+  <p>Lucid 리스크팀이 지속적으로 트레이더 성과를 모니터링합니다. 아래 조건 중 <strong>하나 이상</strong> 충족 시 Live 리뷰풀에 진입:</p>
   <ul>
-    <li><strong>$0 시작 잔고:</strong> Live 계정 시작 시 잔고가 $0. EOD Drawdown 적용.</li>
-    <li><strong>One-Time Bonus:</strong> 첫 Profit Target 달성 시 보너스 지급 (아래 표)</li>
-    <li><strong>폐지된 것들:</strong> Escrow Matching, 60일 Vesting, Safety Net Account, Bonus Doubling 전부 삭제</li>
+    <li>해당 플랜의 <strong>최종 Payout(Payout 5)</strong> 수령 후</li>
+    <li>누적으로 <strong>상당한 금액</strong>을 수령한 경우</li>
+    <li>Sim Funded에서 <strong>뛰어난 성과</strong>를 보인 경우</li>
+    <li><strong>이전에 Live 전환 경험</strong>이 있는 경우</li>
+  </ul>
+  <div class="callout callout-orange">
+    <span class="label">주의</span><br>
+    Payout 5는 최대 Payout 레벨이지, Live 전환이 보장되는 최소 조건이 아닙니다. 모든 Live 전환은 <strong>Lucid 리스크팀의 재량</strong>입니다.
+  </div>
+
+  <h3>Live 전환 시 구조</h3>
+  <ul>
+    <li>자격 있는 Funded 계정 1개당 Live 계정 1개 발급 (각 Funded 계정에서 최소 1회 Payout 필요)</li>
+    <li>Live 거래 20일 후, 여러 Live 계정을 <strong>하나로 합칠 수 있는 옵션</strong> 제공 가능</li>
+    <li>Live 전환 시 <strong>모든 Sim 계정은 폐쇄</strong>됨 — 리저브 계정 보유 시 주의!</li>
+  </ul>
+
+  <h4>모든 Live 계정 공통</h4>
+  <ul>
+    <li><strong>$0 시작 잔고</strong></li>
+    <li><strong>Daily Payout</strong></li>
+    <li><strong>EOD Drawdown</strong></li>
+    <li><strong>DLL 없음</strong></li>
   </ul>
 
   <div class="table-wrap">
     <table>
-      <tr><th>Funded 계정 사이즈</th><th>One-Time Bonus (첫 목표 달성 시)</th></tr>
-      <tr><td>$25,000</td><td>$1,000</td></tr>
-      <tr><td>$50,000</td><td>$2,000</td></tr>
-      <tr><td>$100,000</td><td>$3,000</td></tr>
-      <tr><td>$150,000</td><td>$4,500</td></tr>
+      <tr><th>Funded 계정</th><th>Starting Live Drawdown</th><th>Starting Live Contract Limit</th></tr>
+      <tr><td>$25,000</td><td>$1,000</td><td>2 mini / 20 micro</td></tr>
+      <tr><td>$50,000</td><td>$2,000</td><td>4 mini / 40 micro</td></tr>
+      <tr><td>$100,000</td><td>$3,000</td><td>6 mini / 60 micro</td></tr>
+      <tr><td>$150,000</td><td>$4,500</td><td>10 mini / 100 micro</td></tr>
     </table>
   </div>
+  <p style="font-size:0.88em; color:var(--text-dim);">* 극단적으로 변동성이 큰 상품은 Live Drawdown 초과 방지를 위해 포지션 사이즈가 축소될 수 있음</p>
+
+  <h4>MLL 잠금</h4>
+  <p>Live Drawdown을 넘기기 전에 Payout을 요청하면, MLL이 <strong>$0에 잠금</strong>됩니다.</p>
+
+  <h3>Live Bonus (일회성)</h3>
+  <p>새 프로그램 하에서 <strong>처음</strong> Live 전환된 트레이더에게 일회성 보너스 기회:</p>
+  <ul>
+    <li><strong>조건:</strong> Live 수익이 Starting Live Drawdown과 같아지면 보너스 해제</li>
+    <li>보너스 수령 후 <strong>제한 없이 사용 가능</strong></li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>Funded 계정</th><th>Live Target</th><th>Live Bonus</th></tr>
+      <tr><td>$25,000</td><td>$1,000</td><td>$1,000</td></tr>
+      <tr><td>$50,000</td><td>$2,000</td><td>$2,000</td></tr>
+      <tr><td>$100,000</td><td>$3,000</td><td>$3,000</td></tr>
+      <tr><td>$150,000</td><td>$4,500</td><td>$4,500</td></tr>
+    </table>
+  </div>
+
+  <div class="explain">
+    <div class="explain-title">예시: $50K Funded 5개로 Live 전환</div>
+    <p>각 계정 $0 시작 + $2,000 Drawdown → 각 계정에서 $2,000 수익 달성 →</p>
+    <p>Lucid가 각 계정에 $2,000 Bonus 해제 → 각 계정 잔고 $4,000</p>
+    <p>총 Live 자본: <strong>$20,000</strong></p>
+    <p style="margin-top:6px;">단, 보너스는 새 프로그램 하에서 <strong>첫 Live 전환 세트에만</strong> 적용. 2회 이상 Live 전환 시 이후 세트는 보너스 없음. LucidMaxx 트레이더는 보너스 대상 아님.</p>
+  </div>
+
+  <h3>쿨다운 (Live Blow 후)</h3>
+  <ul>
+    <li>Live 계정 파산 후 새 Evaluation 구매까지: <strong>기본 2주 쿨다운</strong></li>
+    <li>무모한/YOLO 매매로 반복 파산 시: 리스크팀 재량으로 <strong>쿨다운 연장 가능</strong></li>
+  </ul>
 
   <div class="callout callout-red">
     <span class="label">중요 규칙</span><br>
     <ul style="margin-top:6px;">
-      <li><strong>Hedging 완전 금지:</strong> Live 계정에서 Lucid 규정 + CME(시카고상품거래소) 규정 양쪽으로 금지</li>
+      <li><strong>Hedging 완전 금지:</strong> Live 계정에서 Lucid 규정 + CME(시카고상품거래소) 규정 양쪽으로 금지 → 위반 시 <strong>영구 밴</strong></li>
       <li><strong>가구 규칙:</strong> 같은 가구에서 한 명이 Live 거래 중이면, 다른 가구원은 Sim(시뮬레이션) 계정 거래 불가</li>
+      <li><strong>Sim 계정 전부 폐쇄:</strong> Live 전환 시 모든 Sim 계정이 닫힘 — 리저브로 보유 중인 계정도 포함!</li>
     </ul>
   </div>
 </div>
@@ -783,9 +865,14 @@
       <tr><td>LucidLive</td><td><strong>가능</strong></td><td>오버나이트 마진 요건 충족 필수</td></tr>
     </table>
   </div>
+  <div class="callout callout-green">
+    <span class="label">중요</span><br>
+    4:45 PM EST 이후 포지션을 보유하더라도 <strong>계정 실패(breach)가 되지는 않습니다</strong>.
+    Lucid가 4:45 PM에 자동으로 청산 처리합니다.
+  </div>
   <ul>
-    <li><strong>Auto-Liquidate 옵션:</strong> 설정 시 정비 시간 전 자동으로 포지션 청산</li>
-    <li>4:45 PM EST까지 청산하지 않으면 <strong>자동 청산(flatten)</strong> 처리됨</li>
+    <li><strong>Auto-Liquidate 옵션:</strong> LucidLive에서 설정 가능 — 정비 시간 전 자동으로 포지션 청산</li>
+    <li>마켓 휴일에 마감 시간이 달라지면, 통상적 4:45 PM 기준과 관계없이 <strong>마켓 마감 전까지</strong> 청산 필수</li>
   </ul>
 </div>
 
@@ -807,6 +894,13 @@
     <li><strong>정상 스캘핑은 허용:</strong> 현실적 시장 활동을 반영하는 빠른 매매는 OK</li>
     <li><strong>핵심 판단:</strong> "시뮬레이션 체결 방식을 악용하려는 의도"가 있는가</li>
   </ul>
+  <h4>Microscalping 제재 절차 (공식)</h4>
+  <ol>
+    <li>플래그 → Lucid가 <strong>수동 리뷰</strong>로 정책 위반 여부 확인</li>
+    <li>악의적 행위 확인 시 → <strong>서면 경고</strong></li>
+    <li>경고 후에도 계속되면 → Microscalping으로 발생한 <strong>모든 수익 몰수</strong> + <strong>영구 이용 제한</strong></li>
+    <li>오탐으로 판단 시 <strong>이의 제기(appeal)</strong> 가능</li>
+  </ol>
 
   <h3>2. Hedging (헤징)</h3>
   <div class="explain">
@@ -820,17 +914,38 @@
       <strong>다른 사용자와 짜고 하는 것도 금지.</strong> 다른 프랍펌과 교차해서 하는 것도 금지입니다.
     </p>
   </div>
-  <ul>
-    <li><strong>허용:</strong> 같은 계정 내에서 Mini Long + Micro Short 등 (동일 계정 내 반대 포지션)</li>
-    <li><strong>금지:</strong> 다른 계정 / 다른 사용자 / 다른 프랍펌 간 동일 상품 반대 포지션</li>
-    <li><strong>탐지:</strong> 자동 상관관계 탐지 시스템 운영</li>
-  </ul>
+  <h4>허용 vs 금지 정리</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>상황</th><th>허용?</th></tr>
+      <tr><td>같은 계정 내에서 같은 상품 Mini Long + Micro Short</td><td>✅ 허용</td></tr>
+      <tr><td>같은 계정 내에서 다른 상품 Long/Short (예: ES Long + NQ Short)</td><td>✅ 허용</td></tr>
+      <tr><td><strong>다른 계정</strong>에서 같은 상품 Long/Short (Mini든 Micro든)</td><td>🚫 금지</td></tr>
+      <tr><td><strong>다른 계정</strong>에서 <strong>상관관계 있는 상품</strong> Long/Short (예: ES Long in A + NQ Short in B)</td><td>🚫 금지</td></tr>
+      <tr><td>다른 사용자와 짜고 반대 포지션</td><td>🚫 금지</td></tr>
+      <tr><td>다른 프랍펌과 교차 반대 포지션</td><td>🚫 금지</td></tr>
+    </table>
+  </div>
+  <div class="callout callout-orange">
+    <span class="label">상관관계 상품 그룹 (Correlated Assets)</span><br>
+    주식지수(ES, NQ, YM, RTY), 금속(GC, SI), 에너지(CL, NG) 등 같은 그룹 내 상품은 "상관관계 있음"으로 간주됩니다.
+    다른 계정 간에 이 그룹 내 반대 포지션을 취하면 Hedging으로 탐지됩니다.
+  </div>
+  <p><strong>탐지:</strong> 자동 상관관계 탐지 시스템 운영</p>
 
   <h3>3. High-Frequency Trading (HFT, 고빈도 매매)</h3>
+
+  <div class="explain">
+    <div class="explain-title">쉽게 풀어서 설명: HFT란?</div>
+    <p>
+      알고리즘이 초/밀리초 단위로 대량의 주문을 제출·실행하여 미세한 가격 비효율을 포착하는 전략입니다.
+      수분 내에 수백 개의 주문이 발생하여 플랫폼 인프라에 과도한 부하를 줍니다.
+    </p>
+  </div>
   <ul>
-    <li>Lucid 인프라 및 평가 목적과 <strong>양립 불가</strong></li>
-    <li>자동 탐지 시스템으로 감지</li>
-    <li>수익 제거, 계정 폐쇄, 반복 시 접근 영구 제한</li>
+    <li><strong>1차 적발:</strong> 서면 경고</li>
+    <li><strong>반복:</strong> HFT로 발생한 모든 수익 제거 + 계정 폐쇄 + <strong>영구 이용 제한</strong></li>
+    <li>오탐으로 판단되면 <strong>이의 제기(appeal)</strong> 가능</li>
   </ul>
 
   <h3>4. 시스템 악용 (Platform Exploitation)</h3>
@@ -840,14 +955,18 @@
     <li>"실제 시장에서 재현 불가능한 방식으로 수익을 내는 모든 행위"가 대상</li>
   </ul>
 
-  <h3>위반 시 제재 단계</h3>
-  <div class="callout callout-red">
-    <span class="label">제재 절차</span><br>
-    <ol style="margin-top:8px;">
-      <li><strong>1차 적발:</strong> 이메일 통보 + 해당일 거래 삭제 또는 전일 잔고로 리셋</li>
-      <li><strong>반복 적발:</strong> 관련 계정 <strong>전부 Breach(파산 처리)</strong> + <strong>Lucid 서비스 영구 이용 제한</strong></li>
-    </ol>
+  <h3>위반 시 제재 (유형별 차이)</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>위반 유형</th><th>1차</th><th>반복</th></tr>
+      <tr><td><strong>Hedging</strong></td><td>이메일 통보 + 전일 잔고 리셋</td><td>관련 계정 전부 Breach + 영구 밴</td></tr>
+      <tr><td><strong>Microscalping</strong></td><td>수동 리뷰 → 서면 경고</td><td>수익 몰수 + 영구 밴</td></tr>
+      <tr><td><strong>HFT</strong></td><td>서면 경고</td><td>수익 제거 + 계정 폐쇄 + 영구 밴</td></tr>
+      <tr><td><strong>시스템 악용</strong></td><td>해당일 삭제 / 수익 제거</td><td>계정 폐쇄 + 영구 밴</td></tr>
+      <tr><td><strong>Live Hedging</strong></td><td colspan="2">즉시 <strong>영구 밴</strong> (CME 규정 위반)</td></tr>
+    </table>
   </div>
+  <p>모든 유형에서 오탐이라고 판단되면 <strong>이의 제기(appeal)</strong>가 가능합니다.</p>
 </div>
 
 <!-- ========== SECTION 9 ========== -->
@@ -858,24 +977,29 @@
     <table>
       <tr><th>활동</th><th>허용 여부</th><th>조건/주의사항</th></tr>
       <tr>
-        <td><strong>자동매매 (봇/EA)</strong></td>
-        <td>✅ 허용</td>
-        <td>모든 Lucid 규칙 준수 필수. 봇 오류에 대한 책임은 트레이더 본인</td>
-      </tr>
-      <tr>
-        <td><strong>Trade Copier</strong></td>
-        <td>✅ 허용</td>
-        <td>복사 대상도 Lucid 규칙 준수해야 함</td>
-      </tr>
-      <tr>
         <td><strong>뉴스 매매</strong></td>
-        <td>✅ 완전 허용</td>
-        <td>NFP, FOMC, CPI 등 모든 이벤트. 단, LucidDirect는 Consistency 비율 왜곡 주의</td>
+        <td>✅ 제한 없이 허용</td>
+        <td>NFP, FOMC, CPI 등 모든 이벤트. 단, 뉴스 시 슬리피지/velocity logic 트리거 가능 — 모든 결과에 대한 책임은 트레이더</td>
       </tr>
       <tr>
-        <td><strong>스캘핑</strong></td>
+        <td><strong>스캘핑 (Genuine)</strong></td>
         <td>✅ 허용</td>
-        <td>성실한(genuine) 거래 의도인 한 최소 보유시간 제한 없음</td>
+        <td>실제 시장 행동을 반영하는 단기 매매. Microscalping 정책 준수 필수. 체결 로직 조작 의도 X</td>
+      </tr>
+      <tr>
+        <td><strong>Scaling Into Trades (DCA)</strong></td>
+        <td>✅ 허용</td>
+        <td>분할 진입, Dollar Cost Averaging 자유. 진입 방식에 제한 없음</td>
+      </tr>
+      <tr>
+        <td><strong>자동매매 (봇/EA/Copier)</strong></td>
+        <td>✅ 허용</td>
+        <td>모든 Lucid 규칙 준수 필수. 소프트웨어 오류/오작동에 대한 책임은 전적으로 트레이더</td>
+      </tr>
+      <tr>
+        <td><strong>Flipping</strong></td>
+        <td>✅ 허용</td>
+        <td>최소 거래일 충족을 위한 빠른 진출입 거래. 제한 없음</td>
       </tr>
       <tr>
         <td><strong>오버나이트 보유</strong></td>
@@ -889,6 +1013,12 @@
       </tr>
     </table>
   </div>
+
+  <div class="callout callout-orange">
+    <span class="label">경고: Martingaling (마틴게일)</span><br>
+    DCA/Scaling은 허용되지만, <strong>마틴게일(손실 포지션에 계속 추가하여 회복을 노리는 전략)</strong>은 <strong>강력히 비권장</strong>됩니다.
+    리스크가 급격히 확대되며 지속 가능한 장기 전략이 아닙니다.
+  </div>
 </div>
 
 <!-- ========== SECTION 10 ========== -->
@@ -898,10 +1028,11 @@
   <h3>최대 계정 수</h3>
   <div class="table-wrap">
     <table>
-      <tr><th>유형</th><th>제한</th></tr>
-      <tr><td>동시 Evaluation 계정</td><td>최대 <strong>10개</strong></td></tr>
-      <tr><td>Funded 계정</td><td>가구당 최대 <strong>5개</strong></td></tr>
-      <tr><td>Evaluation + Funded 합계</td><td>가구/가족 단위 최대 <strong>10개</strong></td></tr>
+      <tr><th>유형</th><th>제한</th><th>비고</th></tr>
+      <tr><td>Evaluation 계정</td><td>최대 <strong>10개</strong></td><td>가구/가족 단위</td></tr>
+      <tr><td>Funded 계정</td><td>최대 <strong>5개</strong></td><td>모든 Funded 유형 합산</td></tr>
+      <tr><td>Live 계정</td><td>최대 <strong>5개</strong></td><td>가구/가족 단위</td></tr>
+      <tr><td>Eval + Funded 합계</td><td>최대 <strong>10개</strong></td><td>Eval 5 + Funded 5 가능</td></tr>
     </table>
   </div>
 
@@ -910,20 +1041,34 @@
     <p>
       같은 집에 사는 가족 구성원 전체를 하나의 단위로 봅니다.
       예를 들어, 형이 Funded 5개를 보유하고 있으면 동생은 Funded 계정을 만들 수 없습니다.
-      IP, 결제 정보, 주소 등을 기반으로 판단합니다.
+    </p>
+    <p>
+      <strong>리저브 계정:</strong> Funded 5개 보유 시 나머지 Evaluation 5개를 리저브에 둘 수 있으며,
+      리저브 상태에서도 거래 가능합니다.
+    </p>
+    <p>
+      <strong>예시:</strong> Eval 5개 + Funded 5개 = 10개 OK.
+      단, Funded 3개(LucidDirect) + Funded 2개(LucidPro) = 5개로 서로 다른 유형 합산.
     </p>
   </div>
 
-  <h3>비활성 정책</h3>
+  <h3>비활성 정책 (Active Status)</h3>
   <ul>
-    <li><strong>활성 계정:</strong> 30일 동안 거래 없으면 → 이메일 경고 2회 후 계정 비활성화</li>
-    <li><strong>Breach된 계정:</strong> 30일 후 자동 삭제 (리셋 또는 수동 제거하지 않는 한)</li>
-    <li><strong>최소 활동 기준:</strong> 30일에 <strong>최소 1회 거래</strong></li>
+    <li>매일/매주 거래할 의무는 없지만, 계정은 <strong>활성 상태</strong>를 유지해야 함</li>
+    <li><strong>30일(달력 기준)</strong> 동안 거래가 없으면 → 계정은 <strong>"방치(abandoned)"로 간주되어 영구 삭제</strong></li>
+    <li>시스템 성능 및 데이터 무결성 유지를 위해 휴면 계정을 제거함</li>
+  </ul>
+
+  <h3>Breach 계정 정책</h3>
+  <ul>
+    <li>Breach(MLL 초과)된 계정은 여전히 <strong>리셋 구매 가능</strong></li>
+    <li>Breach 후 <strong>30일 내</strong> 리셋하지 않으면 → <strong>자동 삭제</strong></li>
+    <li>대시보드에서 수동으로 직접 삭제도 가능 (삭제는 되돌릴 수 없음)</li>
   </ul>
 
   <div class="callout callout-orange">
     <span class="label">주의</span><br>
-    비활성으로 삭제된 계정은 복구 불가합니다. 장기간 거래 못 할 상황이면 최소 30일마다 1건은 넣어두세요.
+    삭제된 계정은 복구 불가합니다. 장기간 거래 못 할 상황이면 최소 30일마다 1건은 넣어두세요.
   </div>
 </div>
 
